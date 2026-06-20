@@ -14,7 +14,7 @@ export default function Header({
   siteName: string;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { totalCount } = useCart();
+  const { totalCount, openCart } = useCart();
   const [firstWord, ...restWords] = siteName.split(" ");
   const restWord = restWords.join(" ");
 
@@ -91,8 +91,9 @@ export default function Header({
           >
             Tüm Ürünler
           </Link>
-          <Link
-            href="/sepet"
+          <button
+            type="button"
+            onClick={openCart}
             className="relative flex items-center gap-2 text-sm font-semibold"
             aria-label="Sepetim"
           >
@@ -115,7 +116,7 @@ export default function Header({
                 {totalCount}
               </span>
             )}
-          </Link>
+          </button>
         </div>
       </div>
 

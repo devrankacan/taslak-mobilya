@@ -26,6 +26,9 @@ type CartContextValue = {
   clearCart: () => void;
   totalCount: number;
   totalPrice: number;
+  isOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -34,6 +37,7 @@ const STORAGE_KEY = "taslak-mobilya-cart";
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Cart must start empty on the server render and only pick up
   // localStorage once mounted, so this intentionally sets state on mount.
@@ -74,6 +78,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         },
       ];
     });
+    setIsOpen(true);
   }, []);
 
   const removeItem = useCallback((slug: string) => {
@@ -89,6 +94,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const clearCart = useCallback(() => setItems([]), []);
+  const openCart = useCallback(() => setIsOpen(true), []);
+  const closeCart = useCallback(() => setIsOpen(false), []);
 
   const totalCount = useMemo(
     () => items.reduce((sum, item) => sum + item.quantity, 0),
@@ -108,8 +115,22 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       clearCart,
       totalCount,
       totalPrice,
+      isOpen,
+      openCart,
+      closeCart,
     }),
-    [items, addItem, removeItem, updateQuantity, clearCart, totalCount, totalPrice]
+    [
+      items,
+      addItem,
+      removeItem,
+      updateQuantity,
+      clearCart,
+      totalCount,
+      totalPrice,
+      isOpen,
+      openCart,
+      closeCart,
+    ]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

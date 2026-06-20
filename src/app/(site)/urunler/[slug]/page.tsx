@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -10,6 +9,7 @@ import {
 } from "@/lib/data";
 import AddToCartPanel from "@/components/AddToCartPanel";
 import ProductGrid from "@/components/ProductGrid";
+import ProductGallery from "@/components/ProductGallery";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -55,41 +55,12 @@ export default async function ProductDetailPage({
       </nav>
 
       <div className="grid md:grid-cols-2 gap-10">
-        <div className="grid gap-4">
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-cream-dark">
-            <Image
-              src={product.images[0]}
-              alt={product.name}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-              priority
-            />
-            {discount && (
-              <span className="absolute top-4 left-4 bg-terracotta text-white text-xs font-semibold px-3 py-1 rounded-full">
-                %{discount} indirim
-              </span>
-            )}
-          </div>
-          {product.images.length > 1 && (
-            <div className="grid grid-cols-3 gap-3">
-              {product.images.map((img) => (
-                <div
-                  key={img}
-                  className="relative aspect-square rounded-xl overflow-hidden bg-cream-dark"
-                >
-                  <Image
-                    src={img}
-                    alt={product.name}
-                    fill
-                    sizes="200px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+        <ProductGallery
+          name={product.name}
+          images={product.images}
+          colors={product.colors}
+          discount={discount}
+        />
 
         <div>
           <h1 className="font-display text-3xl md:text-4xl text-walnut mb-3">
@@ -117,21 +88,6 @@ export default async function ProductDetailPage({
           <p className="text-walnut-soft leading-relaxed mb-6">
             {product.description}
           </p>
-
-          {product.colors.length > 0 && (
-            <div className="mb-6">
-              <p className="text-sm font-medium text-walnut mb-2">Renk Seçenekleri</p>
-              <div className="flex gap-2">
-                {product.colors.map((color) => (
-                  <span
-                    key={color}
-                    className="w-8 h-8 rounded-full border border-border"
-                    style={{ backgroundColor: color }}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
 
           <AddToCartPanel product={product} />
 
