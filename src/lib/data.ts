@@ -1,41 +1,44 @@
 import type { Category, Product } from "./types";
 
+const u = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
+
 export const categories: Category[] = [
   {
     slug: "oturma-grubu",
     name: "Oturma Grubu",
     description: "Koltuk takımları ve berjerler",
-    image: "/images/category-oturma-grubu.svg",
+    image: u("photo-1555041469-a586c61ea9bc"),
   },
   {
     slug: "yemek-odasi",
     name: "Yemek Odası",
     description: "Masa ve sandalye takımları",
-    image: "/images/category-yemek-odasi.svg",
+    image: u("photo-1617806118233-18e1de247200"),
   },
   {
     slug: "yatak-odasi",
     name: "Yatak Odası",
     description: "Yatak, baza ve gardolaplar",
-    image: "/images/category-yatak-odasi.svg",
+    image: u("photo-1505693416388-ac5ce068fe85"),
   },
   {
     slug: "genc-odasi",
     name: "Genç Odası",
     description: "Genç ve çocuk odası takımları",
-    image: "/images/category-genc-odasi.svg",
+    image: u("photo-1522771739844-6a9f6d5f14af"),
   },
   {
     slug: "calisma-odasi",
     name: "Çalışma Odası",
     description: "Ofis koltukları ve çalışma masaları",
-    image: "/images/category-calisma-odasi.svg",
+    image: u("photo-1518455027359-f3f8164ba6bd"),
   },
   {
     slug: "aydinlatma-dekor",
     name: "Aydınlatma & Dekor",
     description: "Lambader, aksesuar ve tekstil",
-    image: "/images/category-aydinlatma-dekor.svg",
+    image: u("photo-1513506003901-1e6a229e2d15"),
   },
 ];
 
@@ -48,8 +51,8 @@ export const products: Product[] = [
     oldPrice: 72500,
     isNew: true,
     images: [
-      "/images/product-verona-kose-koltuk-takimi-1.svg",
-      "/images/product-verona-kose-koltuk-takimi-2.svg",
+      u("photo-1493663284031-b7e3aefcae8e"),
+      u("photo-1567538096630-e0c55bd6374c"),
     ],
     colors: ["#A9967F", "#5C5650", "#C7BBA8"],
     description:
@@ -69,8 +72,8 @@ export const products: Product[] = [
     categorySlug: "oturma-grubu",
     price: 32900,
     images: [
-      "/images/product-milano-3lu-kanepe-1.svg",
-      "/images/product-milano-3lu-kanepe-2.svg",
+      u("photo-1555041469-a586c61ea9bc"),
+      u("photo-1586023492125-27b2c045efd7"),
     ],
     colors: ["#3A4534", "#2B2420", "#D8CFC1"],
     description:
@@ -89,7 +92,7 @@ export const products: Product[] = [
     name: "Luna Berjer Koltuk",
     categorySlug: "oturma-grubu",
     price: 11750,
-    images: ["/images/product-luna-berjer-1.svg"],
+    images: [u("photo-1567016526105-22da7c13161a")],
     colors: ["#9C4B2E", "#2B2420"],
     description:
       "Luna berjer, tek başına ya da takım koltukların yanında kullanılabilen, zarif kadife dokusuyla göz alıcı bir okuma köşesi yaratır.",
@@ -108,8 +111,8 @@ export const products: Product[] = [
     price: 27400,
     oldPrice: 31900,
     images: [
-      "/images/product-ada-yemek-masasi-takimi-1.svg",
-      "/images/product-ada-yemek-masasi-takimi-2.svg",
+      u("photo-1617806118233-18e1de247200"),
+      u("photo-1617104678098-de229db51175"),
     ],
     colors: ["#6B4F3B", "#2B2420"],
     description:
@@ -128,7 +131,7 @@ export const products: Product[] = [
     name: "Vento Bar Sandalyesi (2'li)",
     categorySlug: "yemek-odasi",
     price: 5400,
-    images: ["/images/product-vento-bar-sandalyesi-1.svg"],
+    images: [u("photo-1592078615290-033ee584e267")],
     colors: ["#2B2420", "#D8CFC1"],
     description:
       "Vento bar sandalyesi, mutfak adalarınız ve bar köşeleriniz için ergonomik tasarımıyla modern bir görünüm sunar. 2 adet bir aradadır.",
@@ -144,8 +147,8 @@ export const products: Product[] = [
     oldPrice: 79900,
     isNew: true,
     images: [
-      "/images/product-norden-yatak-odasi-takimi-1.svg",
-      "/images/product-norden-yatak-odasi-takimi-2.svg",
+      u("photo-1505693416388-ac5ce068fe85"),
+      u("photo-1540518614846-7eded433c457"),
     ],
     colors: ["#D8CFC1", "#6B4F3B"],
     description:
@@ -163,7 +166,7 @@ export const products: Product[] = [
     name: "Mira Baza & Başlık Takımı (160x200)",
     categorySlug: "yatak-odasi",
     price: 22300,
-    images: ["/images/product-mira-baza-basliklik-1.svg"],
+    images: [u("photo-1505842465776-3d90f616310e")],
     colors: ["#C7BBA8", "#2B2420"],
     description:
       "Mira baza ve başlık takımı, kapitone dikiş detayı ve sandık sistemiyle hem estetik hem fonksiyonel bir çözüm sunar.",
@@ -176,7 +179,7 @@ export const products: Product[] = [
     name: "Kıbrıs Genç Odası Takımı",
     categorySlug: "genc-odasi",
     price: 38700,
-    images: ["/images/product-kibris-genc-odasi-1.svg"],
+    images: [u("photo-1522771739844-6a9f6d5f14af")],
     colors: ["#E3DCCB", "#3A4534"],
     description:
       "Kıbrıs genç odası takımı; çalışma masası, gardolap ve yatak grubunu bir arada sunarak hem fonksiyonel hem eğlenceli bir oda yaratır.",
@@ -193,7 +196,7 @@ export const products: Product[] = [
     name: "Fora Çalışma Masası",
     categorySlug: "calisma-odasi",
     price: 6850,
-    images: ["/images/product-fora-calisma-masasi-1.svg"],
+    images: [u("photo-1518455027359-f3f8164ba6bd")],
     colors: ["#6B4F3B", "#2B2420"],
     description:
       "Fora çalışma masası, kablo düzenleyici bölmesi ve geniş çalışma yüzeyiyle ev ofisleri için pratik bir çözüm sunar.",
@@ -207,7 +210,7 @@ export const products: Product[] = [
     categorySlug: "calisma-odasi",
     price: 9200,
     oldPrice: 10900,
-    images: ["/images/product-ergo-ofis-koltugu-1.svg"],
+    images: [u("photo-1505843490578-d2a8a4d9c5fc")],
     colors: ["#2B2420"],
     description:
       "Ergo ofis koltuğu, ayarlanabilir bel desteği ve file sırt yüzeyiyle uzun çalışma saatlerinde konfor sağlar.",
@@ -224,7 +227,7 @@ export const products: Product[] = [
     name: "Salina Lambader",
     categorySlug: "aydinlatma-dekor",
     price: 3450,
-    images: ["/images/product-salina-lambader-1.svg"],
+    images: [u("photo-1513506003901-1e6a229e2d15")],
     colors: ["#2B2420", "#9C4B2E"],
     description:
       "Salina lambader, sıcak ışık tonu ve zarif kumaş abajuruyla oturma odanıza konforlu bir aydınlatma katmanı ekler.",
@@ -238,7 +241,7 @@ export const products: Product[] = [
     categorySlug: "aydinlatma-dekor",
     price: 4200,
     oldPrice: 5100,
-    images: ["/images/product-tarz-hali-200x300-1.svg"],
+    images: [u("photo-1586105251261-72a756497a11")],
     colors: ["#D8CFC1", "#9C4B2E", "#3A4534"],
     description:
       "Tarz desenli halı, yumuşak dokusu ve şık deseniyle oturma ve yatak odalarına zengin bir doku katar.",

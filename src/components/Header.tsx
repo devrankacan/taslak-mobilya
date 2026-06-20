@@ -1,13 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { categories } from "@/lib/data";
 import { useCart } from "@/lib/cart-context";
 
-export default function Header() {
+export default function Header({
+  logoUrl,
+  siteName,
+}: {
+  logoUrl: string | null;
+  siteName: string;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const { totalCount } = useCart();
+  const [firstWord, ...restWords] = siteName.split(" ");
+  const restWord = restWords.join(" ");
 
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-border">
@@ -39,14 +48,28 @@ export default function Header() {
           <span className="block w-6 h-0.5 bg-walnut" />
         </button>
 
-        <Link href="/" className="shrink-0">
-          <span className="font-display text-2xl md:text-3xl tracking-wide text-walnut">
-            Lonca
-          </span>
-          <span className="font-display text-2xl md:text-3xl tracking-wide text-terracotta">
-            {" "}
-            Mobilya
-          </span>
+        <Link href="/" className="shrink-0 flex items-center">
+          {logoUrl ? (
+            <Image
+              src={logoUrl}
+              alt={siteName}
+              width={160}
+              height={48}
+              className="h-10 md:h-12 w-auto object-contain"
+            />
+          ) : (
+            <>
+              <span className="font-display text-2xl md:text-3xl tracking-wide text-walnut">
+                {firstWord}
+              </span>
+              {restWord && (
+                <span className="font-display text-2xl md:text-3xl tracking-wide text-terracotta">
+                  {" "}
+                  {restWord}
+                </span>
+              )}
+            </>
+          )}
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">

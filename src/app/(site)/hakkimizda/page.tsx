@@ -6,7 +6,7 @@ export default function AboutPage() {
     <div>
       <section className="relative h-72 md:h-96">
         <Image
-          src="/images/about-banner.svg"
+          src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80"
           alt="Atölye"
           fill
           className="object-cover"
@@ -42,7 +42,7 @@ export default function AboutPage() {
         </div>
         <div className="relative aspect-square rounded-3xl overflow-hidden">
           <Image
-            src="/images/about-square.svg"
+            src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=1000&q=80"
             alt="Mobilya atölyesi"
             fill
             className="object-cover"

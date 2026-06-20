@@ -45,7 +45,7 @@ export default function Hero() {
 
         <div className="relative h-72 md:h-[520px] rounded-3xl overflow-hidden">
           <Image
-            src="/images/hero-livingroom.svg"
+            src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=80"
             alt="Modern oturma odası"
             fill
             priority

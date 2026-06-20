@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# admin uploads (runtime content, keep folder via .gitkeep)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

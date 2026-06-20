@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { categories } from "@/lib/data";
 
-export default function Footer() {
+export default function Footer({ siteName }: { siteName: string }) {
   return (
     <footer className="bg-walnut text-cream mt-20">
       <div className="container-page py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         <div>
-          <span className="font-display text-2xl">Lonca Mobilya</span>
+          <span className="font-display text-2xl">{siteName}</span>
           <p className="mt-3 text-sm text-cream/70 leading-relaxed">
             Zanaatla şekillenen ev tasarımları. 2009&apos;dan beri evlerinize
             zarafet ve konfor katıyoruz.
@@ -68,7 +68,7 @@ export default function Footer() {
 
       <div className="border-t border-cream/10 py-5">
         <p className="container-page text-xs text-cream/50">
-          © {new Date().getFullYear()} Lonca Mobilya. Bu site bir taslak
+          © {new Date().getFullYear()} {siteName}. Bu site bir taslak
           (demo) projesidir, gerçek bir ticari işletmeyi temsil etmez.
         </p>
       </div>
